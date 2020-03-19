@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4d81b16506ea495d98c1ad7005efdd72" Name="Diagram1">
+      <Diagram DiagramId="8863c60c7889408dbc3b4ac7fb923bfe" Name="Diagram1">
         <EntityTypeShape EntityType="JSZX_ResourceModel.T_Custom_Msg" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="JSZX_ResourceModel.T_Interface" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="JSZX_ResourceModel.T_Message" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />

@@ -791,19 +791,19 @@ namespace ResSharingPlatform.Controllers
         /**搜索相关资源**/
         public ActionResult RelatedAnnex(string app_Id)
         {
-            string AId = app_Id;
-            List<View_Appendix> resourcelist;
-            using (JSZX_ResourceEntities db = new JSZX_ResourceEntities())
-            {
-                View_Appendix model = db.View_Appendix.First(t => t.ID.Equals(AId));
-                string relatedStr = (string.IsNullOrEmpty(model.FILE_NAME) ? "" : model.FILE_NAME)
-                                  + ","
-                                  + (string.IsNullOrEmpty(model.LABEL) ? "" : model.LABEL);
-                var query = from t in db.relatedAnnex(relatedStr) select t;
-                query = query.Where(t => !t.ID.Equals(AId));
-                resourcelist = query.Take(8).ToList();
-            }
-            ViewData["reslist"] = resourcelist;
+            //string AId = app_Id;
+            //List<View_Appendix> resourcelist;
+            //using (JSZX_ResourceEntities db = new JSZX_ResourceEntities())
+            //{
+            //    View_Appendix model = db.View_Appendix.First(t => t.ID.Equals(AId));
+            //    string relatedStr = (string.IsNullOrEmpty(model.FILE_NAME) ? "" : model.FILE_NAME)
+            //                      + ","
+            //                      + (string.IsNullOrEmpty(model.LABEL) ? "" : model.LABEL);
+            //    var query = from t in db.relatedAnnex(relatedStr) select t;
+            //    query = query.Where(t => !t.ID.Equals(AId));
+            //    resourcelist = query.Take(8).ToList();
+            //}
+            //ViewData["reslist"] = resourcelist;
             return View();
         }
         #endregion

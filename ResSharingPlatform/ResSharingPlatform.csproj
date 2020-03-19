@@ -180,7 +180,7 @@
     <Compile Include="Lib\Pages2.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AppendixByLike_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AppendixModel.cs" />
     <Compile Include="Models\AthorityModels.cs" />
@@ -189,26 +189,26 @@
     <Compile Include="Models\FTPClient.cs" />
     <Compile Include="Models\Interface.cs" />
     <Compile Include="Models\JavaUploadModel.cs" />
-    <Compile Include="Models\LoginReturn.cs" />
-    <Compile Include="Models\MenuOperate.cs" />
-    <Compile Include="Models\Message.cs" />
-    <Compile Include="Models\Model1.Context.cs">
+    <Compile Include="Models\JSZX_ResourceEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\JSZX_ResourceEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JSZX_ResourceEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JSZX_ResourceEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginReturn.cs" />
+    <Compile Include="Models\MenuOperate.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\MyCollectionByLike_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OS.cs" />
     <Compile Include="Models\PointRule.cs" />
@@ -216,161 +216,161 @@
     <Compile Include="Models\ResourceList.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\ResStatistics_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoleOperate.cs" />
     <Compile Include="Models\School.cs" />
     <Compile Include="Models\SPT_Get_Role_Button_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SPT_Menus_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SPT_Menus_User_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SPT_Role_One_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\ToJosn.cs" />
     <Compile Include="Models\T_Custom_Msg.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Interface.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Message.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_MyCollection.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Receive_Message.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Resource.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Res_Appendix.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Res_Qa.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Res_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Res_Score.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Res_Tag.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Res_Type.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_ToChange.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Version.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UploadFileToFtp.cs" />
     <Compile Include="Models\VersionModel.cs" />
     <Compile Include="Models\View_Appendix.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Qa.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Resource.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Resource_20160622_bak.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Resource_Top.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Res_Appendix.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Score.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VoucherModels.cs" />
     <Compile Include="Models\V_MyCollection.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\V_Public_Annex.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\V_Public_Type.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\V_Version.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Admin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Class.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Class_Student.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Class_Student_Bak.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Class_Teacher.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Class_Teacher_Bak.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Course.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Homework.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Homework_Appendix.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Homework_Comment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Homework_Student.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Homework_Student_Comment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Menu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_PointRule.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Review_Count.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Role.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_Role_Menu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_School.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Z_UserPoint.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JSZX_ResourceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -615,15 +615,15 @@
     <Content Include="Lib\dll\Config.dll" />
     <Content Include="Lib\dll\Newtonsoft.Json.dll" />
     <Content Include="Lib\dll\O2S.Components.PDFRender4NET.dll" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\JSZX_ResourceEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JSZX_ResourceEntities.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <LastGenOutput>JSZX_ResourceEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\JSZX_ResourceEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JSZX_ResourceEntities.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <LastGenOutput>JSZX_ResourceEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ckplayer\ckplayer.js" />
     <Content Include="Scripts\ckplayer\ckplayer.swf" />
@@ -645,6 +645,7 @@
     <Content Include="Models\JSZX_ResourceEntities.edmx.diagram">
       <DependentUpon>JSZX_ResourceEntities.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FB.pubxml" />
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />

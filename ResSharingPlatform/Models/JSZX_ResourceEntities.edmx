@@ -1776,7 +1776,7 @@ FROM [dbo].[View_Score] AS [View_Score]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="JSZX_ResourceEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="JSZX_ResourceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="T_Custom_Msg" EntityType="Self.T_Custom_Msg" />
           <EntitySet Name="T_Interface" EntityType="Self.T_Interface" />
           <EntitySet Name="T_Message" EntityType="Self.T_Message" />
@@ -1970,7 +1970,7 @@ FROM [dbo].[View_Score] AS [View_Score]</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="JSZX_ResourceModelStoreContainer" CdmEntityContainer="JSZX_ResourceEntities1">
+        <EntityContainerMapping StorageEntityContainer="JSZX_ResourceModelStoreContainer" CdmEntityContainer="JSZX_ResourceEntities">
           <EntitySetMapping Name="T_Custom_Msg">
             <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Custom_Msg">
               <MappingFragment StoreEntitySet="T_Custom_Msg">

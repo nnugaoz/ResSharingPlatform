@@ -387,23 +387,23 @@ namespace ResSharingPlatform.Models
         {
             try
             {
-                using (JSZX_ResourceEntities db = new JSZX_ResourceEntities())
-                {
-                    var linq =
-                        from t in db.SP_Delete("Z_Role", id, "", "", "", "")
-                        select t;
+                //using (JSZX_ResourceEntities db = new JSZX_ResourceEntities())
+                //{
+                //    var linq =
+                //        from t in db.SP_Delete("Z_Role", id, "", "", "", "")
+                //        select t;
 
-                    string ret = linq.FirstOrDefault();
+                //    string ret = linq.FirstOrDefault();
                 
-                    if (ret == "")
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
+                //    if (ret == "")
+                //    {
+                //        return true;
+                //    }
+                //    else
+                //    {
+                //        return false;
+                //    }
+                //}
                 return true;
             }
             catch (Exception ex)
