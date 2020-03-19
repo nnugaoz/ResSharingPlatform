@@ -1,0 +1,125 @@
+﻿* {
+padding: 0px;
+margin: 0px;
+text-align: left;
+font-family:Arial, Verdana, Tahoma, "微软雅黑", Helvetica, sans-serif;
+line-height: 150%;
+}
+body {
+font-size: 12px;
+text-align: center;
+color: #000000;
+background-color: #fff;
+background-image: url(../Images/body-bg.gif);
+background-repeat: repeat-x;
+}
+table {
+border-collapse: collapse;
+}
+td {
+padding: 3px;
+}
+img {
+border: none;
+}
+input {
+padding: 1px;
+vertical-align: middle;
+line-height: normal;
+}
+.main-box {
+margin-right: auto;
+margin-left: auto;
+clear: both;
+zoom:1;
+overflow:hidden;
+width:1200px;
+}
+.text-overflow-hidden {
+white-space: nowrap;
+word-spacing: normal;
+letter-spacing: normal;
+overflow: hidden;
+}
+.box-align-center {
+margin-right: auto;
+margin-left: auto;
+}
+/*css定义超链接四个状态也有顺序的。*/
+a:link, a:visited {
+text-decoration: none;
+color: #979797;
+}
+a:hover, a:active {
+text-decoration: none;
+color: #888;
+border: none;
+}
+/*以上语句分别定义了"链接、已访问过的链接、鼠标停在上方时、点下鼠标时"的样式。
+注意，必须按以上顺序写，否则显示可能和你预想的不一样。记住它们的顺序是“LVHA”。*/
+ul {
+clear:both;
+overflow:hidden;
+width: 100%;
+}
+ul, li {
+list-style:none;
+}
+.valign {
+display:table-cell;
+*display: inline;
+zoom:1;
+vertical-align:middle;
+}
+.text{word-wrap:break-word;overflow:hidden;word-break:break-all;}
+/*======================CSS垂直居中=======================*/
+.holder {
+width:740px;
+height:300px;
+border:1px solid #777;
+text-align:center;
+display:table-cell;
+vertical-align:middle;
+}
+/*以下样式针对IE*/
+.edge {
+width:0;
+height:100%;
+display:inline-block;
+vertical-align:middle;
+}
+.container {
+vertical-align:middle;
+display:inline-block;
+}
+.class {
+background-color:#FFFF00;/*所有浏览器*/
+*background-color:#00FF00;/*IE*/
+_background-color:#00FFFF;/*IE6*/
+}
+/*======万能Float闭合======*/
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+.clear {display: inline-block;} /* for IE/Mac */
+.clear {
+    zoom: 1;     /* triggers hasLayout */
+    display: block;     /* resets display for IE/Win */
+    }
+/*======万能Float闭合2======*/
+.overflow-hidden{overflow:hidden;}         /*控制背景溢出*/
+.equal-height{margin-bottom:-32800px;padding-bottom:32800px;}      /*控制高度足够小*/
+
+/*======万能Float闭合3======*/
+.clear 
+{
+ height:0px;
+ clear:both;
+ font-size:0px;
+ line-height:0px;
+ zoom: 1;
+}

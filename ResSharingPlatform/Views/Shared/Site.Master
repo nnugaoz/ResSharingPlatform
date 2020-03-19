@@ -1,0 +1,451 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@  Import   Namespace="System.Web.Script.Serialization"   %>
+<%@  Import   Namespace="System.Collections"   %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" />首页</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <!--<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />-->
+    <link href="../../Content/common.css" rel="stylesheet" />
+    <link href="../../Content/global.css" rel="stylesheet" />
+    <link href="../../Content/layout.css" rel="stylesheet" />
+    <link href="../../Content/main1.css" rel="stylesheet" />
+    <link href="../../Content/flexpaper.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/stars.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/view.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+
+    <script src="../../Scripts/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/js/focus.js" type="text/javascript"></script>
+    <script src="../../Scripts/js/main.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.form.js" type="text/javascript"></script>
+
+    <script src="../../Scripts/flexpaper/flexpaper.js" type="text/javascript"></script>
+    <script src="../../Scripts/flexpaper/flexpaper_handlers.js" type="text/javascript"></script>
+
+    <script src="../../Scripts/ckplayer/ckplayer.js" type="text/javascript"></script>
+    <script src="../../Scripts/js/star_rating.js" type="text/javascript"></script>
+    <script src="../../Scripts/js/pop.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    
+    <script src="../../Scripts/js/Variety_Div.js" type="text/javascript"></script>
+    <script src="../../Scripts/js/OS.js" type="text/javascript"></script>
+
+    <script src="../../Scripts/jquery.autocomplete.js" type="text/javascript"></script>
+    <script src="../../Scripts/layer/layer.min.js" type="text/javascript"></script>
+
+    <link href="../../Content/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery.ztree.core-3.5.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.ztree.excheck-3.5.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="../../Login/OutLoginAPI"></script>
+    <script type="text/javascript">
+        $(function () {
+            selectRadio();
+
+            //获得凭证，是否登录
+            $.get("../../Voucher/getVoucher", { r: Math.random() }, function (res) {
+                
+                if (res != null && res != "") {
+                    if (res == "no") {
+                        $("#login_header").html("<a href='javascript:ExamLogin();'> 登录</a>"); 
+                        $("#btnUploadFile").css("display", "none");
+                        $("#menu4").css("display", "none");
+                        $("#menu5").css("display", "none");
+                    } else if (res == "out") {
+                        //$("#login_header").html("<a href='javascript:ExamLogin();'> 登录</a>");
+                        //$("#btnUploadFile").css("display", "none");
+                        //$("#menu4").css("display", "none");
+                        //$("#menu5").css("display", "none");
+                        $.get("../../Login/OutLogin", { r: Math.random() }, function (res) {
+                            $("#login_header").html("");
+                            window.location = "../Home/Index";
+                            if ($("#divLogin").html() != "undefind") {
+                                $("#divLogin").html(loginOutDiv());
+                            }
+                        });
+                    } else if (res == "err") {
+                        $("#login_header").html("<a href='javascript:ExamLogin();'> 登录</a>"); 
+                        $("#btnUploadFile").css("display", "none");
+                        $("#menu4").css("display", "none");
+                        $("#menu5").css("display", "none");
+                    } else {
+                        eval("list=" + res);
+                        if (list[0].Login == "True") {
+                            $("#login_header").html("您好" + list[0].STR + "！欢迎登录教师信息及资源共享平台" + " <a href='javascript:OutLogin();'> 退出</a>");
+                            if ($("#divLogin").html() != "undefind") {
+                                $("#divLogin").html("<h4>" + list[0].STR + "</h4>"
+                                                    + "<p>欢迎登录教师信息及资源共享平台</p>"
+                                                    + "<p><a href='javascript:OutLogin();'> 退出</a></p>");
+                            }
+                        }
+                        var pType = getCookie("gm_userinfo", "Type");
+                        if (pType == "1") {
+                            $("#btnUploadFile").css("display", "block");
+                            $("#menu4").css("display", "block");
+                            $("#menu5").css("display", "block");
+                        } else {
+                            $("#btnUploadFile").css("display", "none");
+                            $("#menu4").css("display", "none");
+                            $("#menu5").css("display", "block");
+                        }
+                    }
+                }
+            });
+
+            setTimeout("getPingzheng()", 30000);
+
+            toAutoComplete();
+        });
+
+        function getPingzheng() {
+            //获得凭证，是否登录
+            $.get("../../Voucher/getVoucher", { r: Math.random() }, function (res) {
+
+                if (res != null && res != "") {
+                    if (res == "no") {
+                        $("#login_header").html("<a href='javascript:ExamLogin();'> 登录</a>"); 
+                        $("#btnUploadFile").css("display", "none");
+                        $("#menu4").css("display", "none");
+                        $("#menu5").css("display", "none");
+                    } else if (res == "out") {
+                        //$("#login_header").html("<a href='javascript:ExamLogin();'> 登录</a>");
+                        //$("#btnUploadFile").css("display", "none");
+                        //$("#menu4").css("display", "none");
+                        //$("#menu5").css("display", "none");
+                        $.get("../../Login/OutLogin", { r: Math.random() }, function (res) {
+                            $("#login_header").html("");
+                            window.location = "../Home/Index";
+                            if ($("#divLogin").html() != "undefind") {
+                                $("#divLogin").html(loginOutDiv());
+                            }
+                        });
+                    } else if (res == "err") {
+                        $("#login_header").html("<a href='javascript:ExamLogin();'> 登录</a>"); 
+                        $("#btnUploadFile").css("display", "none");
+                        $("#menu4").css("display", "none");
+                        $("#menu5").css("display", "none");
+                    }
+                }
+            });
+
+            setTimeout("getPingzheng()", 30000);
+        }
+
+         function toUpload() {
+             if (getCookie("gm_userinfo", "guid") != null && getCookie("gm_userinfo", "Account") != null) {
+                 
+                 var pType = getCookie("gm_userinfo", "Type");
+                 if (pType == "1") {
+                     window.open('../../Upload/ToIndex');
+                 } else {
+                     window.open('../../Upload/Error');
+                 }
+             } else {
+                 ExamLogin();
+             }
+         }
+
+         //在线阅读评价
+         function viewOnline(appId, ext, resId) {
+             window.open("../../Mine/ViewOnline?appId=" + appId + "&ext=" + ext + "&resId=" + resId);
+         }
+
+         function toSearch() {
+             $("#search").attr("action", "../../Mine/Search");
+             $("#search").submit();
+         }
+
+         function doLogin() {
+             $.post("../../Login/LoginOn", { account: $("#T_Uid").val(), password: $("#T_Pwd").val(), r: Math.random(), autoLogin: $("#ichecked").attr("checked") == "checked" ? "true" : "false" }, function (res) {
+                 if (res != null && res != "") {
+                     if (res == "no") {
+                         layer.alert("用户名密码错误！", 8);
+                     } else {
+                         eval("list=" + res);
+                         if (list[0].Login == "True") {
+                             $("#login_header").html("您好" + list[0].STR + "！欢迎登录教师信息及资源共享平台" + " <a href='javascript:OutLogin();'> 退出</a>");
+                             if ($("#divLogin").html() != "undefind") {
+                                 $("#divLogin").html("<h4>" + list[0].STR + "</h4>"
+                                                    + "<p>欢迎登录教师信息及资源共享平台</p>"
+                                                    + "<p><a href='javascript:OutLogin();'> 退出</a></p>");
+                             }
+                         }
+                         var pType = getCookie("gm_userinfo", "Type");
+                         if (pType == "1") {
+                             $("#btnUploadFile").css("display", "block");
+                             $("#menu4").css("display", "block");
+                             $("#menu5").css("display", "block");
+                         } else {
+                             $("#btnUploadFile").css("display", "none");
+                             $("#menu4").css("display", "none");
+                             $("#menu5").css("display", "block");
+                         }
+                         return;
+                     }
+                 }
+             });
+         }
+
+         //安全退出
+         function OutLogin() {
+            
+             var lyr = layer.confirm("您确定要退出吗？", function () {
+                 layer.close(lyr);
+                 sysLoginOut();
+                 $.get("../../Login/OutLogin", { r: Math.random() }, function (res) {
+                     $("#login_header").html("");
+                     window.location = "../Home/Index";
+                     if ($("#divLogin").html() != "undefind") {
+                         $("#divLogin").html(loginOutDiv());
+                     }
+                 });
+             });
+         }
+
+         function loginOutDiv() {
+             var html = "<h4>登录资源平台</h4>"
+                + "<form action=\"\" method=\"post\">"
+                + "<p style=\"padding-top:25px;\">"
+                + "<input type=\"text\" class=\"input-text\" ID=\"T_Uid\" placeholder=\"用户名\" />"
+                + "</p>"
+                + "<p><input type=\"password\" class=\"input-text\" ID=\"T_Pwd\" placeholder=\"密码\" /></p>"
+                + "<p style=\"line-height:30px;\"><input type=\"checkbox\" id=\"ichecked\" style=\"width:25px;display:none;\"/>七天之内自动登录</p>"
+                + "<p><input type=\"button\" class=\"submit-btn\" value=\"登录\" onclick=\"doLogin()\"/></p>"
+                + "</form>";
+             return html;
+         }
+
+         //登录
+         var pageii;
+         function ExamLogin() {
+
+             window.location.href = "../../Login/Login";
+             return;
+
+             //var html = '<div style="font-size: 12px; font-family: @微软雅黑;color: #646262;margin:10px 30px;"><br/>&nbsp;登录名：<input id="T_Uid" type="text" class="px"  style="width:150px;" placeholder="请输入教师工号/学生学号"></input><br/><br/>&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码：<input id="T_Pwd" type="password" class="px"  style="width:150px;" placeholder="请输入密码"></input><br/><br/><input type="checkbox" id="ichecked" style="width:25px"/>七天之内自动登录</div> <br/><input type=\"button\" class=\"submit-btn\" value=\"登录\" id=\"okLogin\"/><br/><br/> ';
+             //VarietyDiv(null, "<div style='margin-left:15px;'>用户登录</div>", "#fff", html, "400px", true);
+             var html = "";
+             html += '<div class="login-con">';
+             html += '    <div class="formtitle" ><span id="title">用户登录</span></div>';
+             html += '    <p style="padding-top:25px;">';
+             html += '        <label style="font:14px \'微软雅黑\'">登录名：</label>';
+             html += '        <input id="T_Uid" type="text" class="input-text" placeholder="请输入用户名" />';
+             html += '    </p>';
+             html += '    <p>';
+             html += '        <label style="font:14px \'微软雅黑\'">密&nbsp;&nbsp;&nbsp;码：</label>';
+             html += '        <input id="T_Pwd" type="password" class="input-text" placeholder="请输入密码" />';
+             html += '    </p>';
+             html += '    <p style="display:none;">';
+             html += '        <input type="checkbox" id="ichecked" style="width:25px"/>七天之内自动登录';
+             html += '    </p>';
+             html += '    <p>';
+             html += '        <input type="button" class="submit-btn" style="margin-left:100px;" value="登录" id="okLogin"/>';
+             html += '    </p>';
+             html += '</div>';             
+             if (pageii != null)
+             {   layer.close(pageii);}
+             pageii = $.layer({
+                 type: 1,
+                 title: false,
+                 area: ['auto', 'auto'],
+                 //border: [0], //去掉默认边框
+                 //shade: [0], //去掉遮罩
+                 shift: 'top', //从左动画弹出
+                 page: {
+                     html: html
+                 }
+             });
+
+             $('#T_Pwd').bind('keypress', function (event) {
+                 if (event.keyCode == "13") {
+                     $("#okLogin").click();
+                 }
+             });
+
+             $("#okLogin").click(function () {
+                 $.post("../../Login/LoginOn", { account: $("#T_Uid").val(), password: $("#T_Pwd").val(), r: Math.random(), autoLogin: $("#ichecked").attr("checked") == "checked" ? "true" : "false" }, function (res) {
+                     if (res != null && res != "") {
+                         if (res == "no") {
+                             layer.alert("用户名密码错误！", 8);
+                         } else {
+                             eval("list=" + res);
+                             if (list[0].Login == "True") {
+                                 window.location = window.location;
+                                 //$("#login_header").html("您好" + list[0].STR + "！欢迎登录资源共享平台" + " <a href='javascript:OutLogin();'> 退出</a>");
+                                 //if ($("#divLogin").html() != "undefind") {
+                                     //$("#divLogin").html("<h4>" + list[0].STR + "</h4>"
+                                                    //+ "<p>欢迎登录资源共享平台</p>"
+                                                    //+ "<p><a href='javascript:OutLogin();'> 退出</a></p>");
+                                 //}
+                             }
+                             //$("#_closeDiv").click();
+                             layer.close(pageii);
+                             //var pType = getCookie("gm_userinfo", "Type");
+                             //if (pType == "1") {
+                                 //$("#btnUploadFile").css("display", "block");
+                                // $("#menu4").css("display", "block");
+                                // $("#menu5").css("display", "block");
+                             //} else {
+                                 //$("#btnUploadFile").css("display", "none");
+                                 //$("#menu4").css("display", "none");
+                                 //$("#menu5").css("display", "block");
+                             //}
+                             
+                             return;
+                         }
+                     }
+                 });
+             });
+         }
+
+         function toMyResource() {
+             if (getCookie("gm_userinfo", "guid") != null && getCookie("gm_userinfo", "Account") != null) {
+                 window.location.href = "../../Mine/MyResource";
+             } else {
+                 ExamLogin();
+             }
+         }
+
+         /**我的收藏 2014-12-18 5920 **/
+         function toMyCollection() {
+             if (getCookie("gm_userinfo", "guid") != null && getCookie("gm_userinfo", "Account") != null) {
+                 window.location.href = "../../Mine/MyCollection";
+             } else {
+                 ExamLogin();
+             }
+         }
+
+         function toAutoComplete() {
+             var comdata = [];
+             $.ajax({
+                 type: "post",
+                 url: "../../Home/SearchLabel",
+                 dataType: "json",
+                 async: false,
+                 success: function (data) {
+                     comdata = data;
+                 }
+             });
+
+             $("#kw").autocomplete(comdata, {
+                 minChars: 1,
+                 delay: 10,
+                 matchContains: "word",
+                 width: $("#kw").width() + $("#searchImg").width(),
+                 autoFill: false,
+                 formatItem: function (row, i, max) {
+                     return row.name;
+                 },
+                 formatMatch: function (row, i, max) {
+                     var name = row.name + row.py;
+                     return name;
+                 },
+                 formatResult: function (row) {
+                     return row.name;
+                 }
+             });
+         }
+
+         //排序
+         function doSearch(orderBy) {
+             //默认第一页
+             $("#pagecurrent").val("");
+             $("#orderBy").val(orderBy);
+             GetInitList();
+
+             //链接样式
+             for (var i = 1; i < 6; i++) {
+                 $("#" + i).parent().removeClass();
+             }
+
+             $("#" + orderBy).parent().addClass("curalink");
+         }
+
+         function checkRadio(v) {
+             $("#radioValue").val(v);
+         }
+
+         function selectRadio() {
+             var v = $("#radioValue").val();
+             if (v == $("#radioDoc").val()) {
+                 $("#radioDoc").attr("checked", "checked");
+             }
+             else if (v == $("#radioXls").val()) {
+                 $("#radioXls").attr("checked", "checked");
+             }
+             else if (v == $("#radioPpt").val()) {
+                 $("#radioPpt").attr("checked", "checked");
+             }
+             else if (v == $("#radioPdf").val()) {
+                 $("#radioPdf").attr("checked", "checked");
+             }
+             else if (v == $("#radioVideo").val()) {
+                 $("#radioVideo").attr("checked", "checked");
+             }
+             else {
+                 $("#radioAll").attr("checked", "checked");
+             }
+         }
+    </script>
+
+    <asp:ContentPlaceHolder ID="RecLink" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+<div class="header2-warp">
+    <div class="header2" id="login_header">
+        <a href='javascript:ExamLogin();'> 登录</a>
+    </div>
+</div>
+    <div class="header">
+        <a class="logo" href="javascript:;"></a>
+        <form id="searchForm" style="float:right;margin-top:20px;overflow:hidden;width:313px;height:50px;" action="../../Mine/Search" method="post">
+    	    <div class="search" style="margin-top:0px;">
+                <input type="text" id="kw" name="kw" value="<%:ViewData["keyword"] %>" placeholder="搜索资源"/>
+    	        <span id="searchImg"></span>
+    	        <input type="submit" class="btn" value="搜索"/>
+                <input type="hidden" id="radioValue" name="radioValue" value="<%:ViewData["radioValue"] %>" />
+            </div>
+            <div style="font-size:14px;color:#00A600;">
+                <label><input id="radioAll" name="radio" type="radio" value=""  onclick="checkRadio('')"/>全部 </label>
+                <label><input id="radioDoc" name="radio" type="radio" value=".doc"  onclick="checkRadio('.doc')"/>Word </label> 
+                <label><input id="radioXls" name="radio" type="radio" value=".xls"  onclick="checkRadio('.xls')"/>Excel </label> 
+                <label><input id="radioPpt" name="radio" type="radio" value=".ppt"  onclick="checkRadio('.ppt')"/>PPT </label> 
+                <label><input id="radioPdf" name="radio" type="radio" value=".pdf"  onclick="checkRadio('.pdf')"/>PDF </label> 
+                <label><input id="radioVideo" name="radio" type="radio" value="video"  onclick="checkRadio('video')"/>视频 </label> 
+            </div>
+        </form>
+        <div class="clear"></div>
+    </div>
+
+    <div class="menu-site">
+	    <ul>
+		    <li id="menu1"><%: Html.ActionLink("首页", "Index", "Home")%></li>  
+            <li id="menu2"><%: Html.ActionLink("文档", "Library", "Mine")%></li>     
+            <li id="menu3"><%: Html.ActionLink("视频", "Video", "Mine")%></li>
+            <li id="menu4" style="display:none;"><a href="javascript:toMyResource()">我的文库</a></li>
+            <li id="menu5" style="display:none;"><a href="javascript:toMyCollection()">我的收藏</a></li>
+            <li class="upload" id="btnUploadFile" style="display:none;"><a href="#" onclick="toUpload()">后台管理</a></li>
+	    </ul>
+	    <div class="clear"></div>
+    </div>
+    <div class="content">
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+        <div id="footer">
+        </div>
+    </div>
+    <div id="IE_DIV" class="footer main-box mt10" style="font:14px '微软雅黑'">
+        <p>版权所有 © 南通市港闸区教育局</p>
+    </div>
+</body>
+</html>

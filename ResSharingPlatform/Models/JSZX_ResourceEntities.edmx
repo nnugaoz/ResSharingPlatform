@@ -1,0 +1,2824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JSZX_ResourceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="T_Custom_Msg">
+          <Key>
+            <PropertyRef Name="Table_Id" />
+          </Key>
+          <Property Name="Table_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Msg_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Receiver_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Table_Title" Type="varchar" MaxLength="255" />
+          <Property Name="Table_Project" Type="text" />
+        </EntityType>
+        <EntityType Name="T_Interface">
+          <Key>
+            <PropertyRef Name="Interface_ID" />
+          </Key>
+          <Property Name="Interface_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Url" Type="varchar" MaxLength="255" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_Message">
+          <Key>
+            <PropertyRef Name="Msg_Id" />
+          </Key>
+          <Property Name="Msg_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Msg_Title" Type="varchar" MaxLength="255" />
+          <Property Name="Msg_Content" Type="text" />
+          <Property Name="Send_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Send_Time" Type="datetime" />
+          <Property Name="Type" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="T_MyCollection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USERID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IS_DEL" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Receive_Message">
+          <Key>
+            <PropertyRef Name="Record_Id" />
+          </Key>
+          <Property Name="Msg_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Receiver_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Receiver_Time" Type="datetime" />
+          <Property Name="Msg_Status" Type="varchar" MaxLength="1" />
+          <Property Name="Record_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Msg_Title" Type="varchar" MaxLength="255" />
+          <Property Name="Msg_Content" Type="text" />
+          <Property Name="Type" Type="varchar" MaxLength="1" />
+          <Property Name="Send_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Send_Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_Res_Appendix">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="FILE_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="UPLOAD_TIME" Type="datetime" />
+          <Property Name="ACTIVE_TIME_START" Type="datetime" />
+          <Property Name="ACTIVE_TIME_END" Type="datetime" />
+          <Property Name="NOTE" Type="varchar" MaxLength="600" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="MODIFYTIME" Type="datetime" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="TYPE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="FILE_URL" Type="varchar" MaxLength="200" />
+          <Property Name="IMAGE" Type="image" />
+          <Property Name="READ_URL" Type="varchar" MaxLength="200" />
+          <Property Name="PAGECOUNT" Type="int" Nullable="false" />
+          <Property Name="AUTHOR" Type="varchar" MaxLength="50" />
+          <Property Name="IS_FOREVER" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Res_Qa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="QUESTION" Type="varchar" MaxLength="600" />
+          <Property Name="ANSWER" Type="varchar" MaxLength="600" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="MODIFYTIME" Type="datetime" />
+          <Property Name="APPEND_ID" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="T_Res_Result">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="REVIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="PAGE_VIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="MODIFYTIME" Type="datetime" />
+          <Property Name="APPEND_ID" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="T_Res_Score">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="GRADE" Type="numeric" Precision="18" Scale="1" />
+          <Property Name="REVIEW" Type="varchar" MaxLength="600" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="MODIFYTIME" Type="datetime" />
+          <Property Name="APPEND_ID" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="T_Res_Tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PARENTID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="PY" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_Res_Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="BELONG_ID" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="T_Resource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="TYPE_ID" Type="varchar" MaxLength="40" />
+          <Property Name="LABEL" Type="varchar(max)" />
+          <Property Name="NOTE" Type="varchar" MaxLength="600" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="SHARE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="MODIFYTIME" Type="datetime" />
+          <Property Name="INTRODUCTION" Type="varchar" MaxLength="600" />
+          <Property Name="ORIGIN_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="EXCELLENT_FLG" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="T_ToChange">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SourceFilePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="TargetFilePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="RetSql" Type="varchar(max)" Nullable="false" />
+          <Property Name="TaskTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VERSION_NUM" Type="int" Nullable="false" />
+          <Property Name="USERID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Z_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Del" Type="bit" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EditMan" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Z_Class">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassName" Type="varchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="ListOrder" Type="int" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Z_Class_Student">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassId" Type="varchar" MaxLength="50" />
+          <Property Name="StudentId" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="SchoolId" Type="varchar" MaxLength="50" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Z_Class_Student_Bak">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassId" Type="varchar" MaxLength="50" />
+          <Property Name="ClassName" Type="varchar(max)" />
+          <Property Name="StudentId" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolId" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolName" Type="varchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Z_Class_Teacher">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SchoolId" Type="varchar" MaxLength="50" />
+          <Property Name="ClassId" Type="varchar" MaxLength="50" />
+          <Property Name="TeacherId" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Z_Class_Teacher_Bak">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SchoolId" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolName" Type="varchar(max)" />
+          <Property Name="ClassId" Type="varchar" MaxLength="50" />
+          <Property Name="ClassName" Type="varchar(max)" />
+          <Property Name="TeacherId" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Z_Course">
+          <Key>
+            <PropertyRef Name="CourseId" />
+          </Key>
+          <Property Name="CourseId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CourseName" Type="varchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Z_Homework">
+          <Key>
+            <PropertyRef Name="HomeworkId" />
+          </Key>
+          <Property Name="HomeworkId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HomeworkName" Type="varchar(max)" />
+          <Property Name="TeacherId" Type="varchar" MaxLength="50" />
+          <Property Name="ClassId" Type="varchar" MaxLength="50" />
+          <Property Name="CourseId" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="Contents" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Appendix">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HomeworkId" Type="varchar" MaxLength="50" />
+          <Property Name="FILE_NAME" Type="varchar(max)" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="TYPE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="FILE_URL" Type="varchar(max)" />
+          <Property Name="IMAGE" Type="image" />
+          <Property Name="READ_URL" Type="varchar(max)" />
+          <Property Name="PAGECOUNT" Type="int" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Comment">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HomeworkId" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" />
+          <Property Name="ReplyUserId" Type="varchar" MaxLength="50" />
+          <Property Name="ParentId" Type="varchar" MaxLength="50" />
+          <Property Name="Comments" Type="varchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Student">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentId" Type="varchar" MaxLength="50" />
+          <Property Name="HomeworkId" Type="varchar" MaxLength="50" />
+          <Property Name="IsRecommend" Type="varchar" MaxLength="1" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+          <Property Name="Score" Type="int" />
+          <Property Name="Contents" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Student_Comment">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoHomeworkId" Type="varchar" MaxLength="50" />
+          <Property Name="Comments" Type="varchar(max)" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteFlag" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Z_Menu">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="Is_Menu" Type="bit" />
+          <Property Name="Url" Type="varchar" MaxLength="200" />
+          <Property Name="Is_Button" Type="bit" />
+          <Property Name="OB" Type="varchar" MaxLength="20" />
+          <Property Name="Del" Type="bit" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EditMan" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Z_PointRule">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PointRuleName" Type="varchar(max)" />
+          <Property Name="Point" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Z_Review_Count">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SiteId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IpAddress" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Z_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="Del" Type="bit" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EditMan" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Z_Role_Menu">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+            <PropertyRef Name="Menu_Code" />
+          </Key>
+          <Property Name="Role_ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_Code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Del" Type="bit" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EditMan" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Z_School">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Z_User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Login_Name" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="DataRole" Type="varchar" MaxLength="1" />
+          <Property Name="PageRole_ID" Type="varchar" MaxLength="40" />
+          <Property Name="PageRole_IP_ID" Type="varchar" MaxLength="40" />
+          <Property Name="IP" Type="varchar" MaxLength="20" />
+          <Property Name="GUID" Type="varchar" MaxLength="40" />
+          <Property Name="Link_Count" Type="int" />
+          <Property Name="Login_Time" Type="datetime" />
+          <Property Name="Del" Type="bit" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EditMan" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="10" />
+          <Property Name="isSeven" Type="bit" Nullable="false" />
+          <Property Name="SchoolId" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="SchoolDate" Type="varchar" MaxLength="50" />
+          <Property Name="IsCmsAdmin" Type="varchar" MaxLength="1" />
+          <Property Name="IsMonitorAdmin" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Z_UserPoint">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" />
+          <Property Name="ResourceId" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Point" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.V_MyCollection”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_MyCollection">
+          <Key>
+            <PropertyRef Name="MyID" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MyUserID" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="IS_FOREVER" />
+          </Key>
+          <Property Name="MyID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="FILE_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="UPLOAD_TIME" Type="datetime" />
+          <Property Name="ACTIVE_TIME_START" Type="datetime" />
+          <Property Name="ACTIVE_TIME_END" Type="datetime" />
+          <Property Name="UserID" Type="varchar" MaxLength="40" />
+          <Property Name="TYPE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="REVIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="PAGE_VIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="Res_DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="SHARE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="TYPE_ID" Type="varchar" MaxLength="40" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="LABEL" Type="varchar(max)" />
+          <Property Name="INTRODUCTION" Type="varchar" MaxLength="600" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="GRADE" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="MyUserID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="AUTHOR" Type="varchar" MaxLength="50" />
+          <Property Name="NOTE" Type="varchar" MaxLength="600" />
+          <Property Name="IS_FOREVER" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.V_Public_Annex”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_Public_Annex">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="PAGECOUNT" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" />
+          <Property Name="FileType" Type="int" />
+          <Property Name="SourceFilePath" Type="varchar" MaxLength="200" />
+          <Property Name="TargetFilePath" Type="varchar" MaxLength="200" />
+          <Property Name="FileFirstImg" Type="image" />
+          <Property Name="TypeID" Type="varchar" MaxLength="40" />
+          <Property Name="TypeName" Type="varchar" MaxLength="100" />
+          <Property Name="Tag" Type="varchar(max)" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="PAGECOUNT" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.V_Public_Type”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_Public_Type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="pId" Type="varchar" MaxLength="40" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="CREATETIME" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.V_Version”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NID" />
+            <PropertyRef Name="OID" />
+            <PropertyRef Name="VERSION_NUM" />
+            <PropertyRef Name="CreateTime" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" />
+          <Property Name="VERSION_NUM" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.View_Appendix”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Appendix">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IS_FOREVER" />
+          </Key>
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="FILE_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="UPLOAD_TIME" Type="datetime" />
+          <Property Name="ACTIVE_TIME_START" Type="datetime" />
+          <Property Name="ACTIVE_TIME_END" Type="datetime" />
+          <Property Name="UserID" Type="varchar" MaxLength="40" />
+          <Property Name="TYPE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="REVIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="PAGE_VIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="Res_DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="SHARE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="TYPE_ID" Type="varchar" MaxLength="40" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="LABEL" Type="varchar(max)" />
+          <Property Name="INTRODUCTION" Type="varchar" MaxLength="600" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="GRADE" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="AUTHOR" Type="varchar" MaxLength="50" />
+          <Property Name="NOTE" Type="varchar" MaxLength="600" />
+          <Property Name="IS_FOREVER" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.View_Qa”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Qa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="QUESTION" Type="varchar" MaxLength="600" />
+          <Property Name="ANSWER" Type="varchar" MaxLength="600" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="MODIFYTIME" Type="datetime" />
+          <Property Name="APPEND_ID" Type="varchar" MaxLength="40" />
+          <Property Name="CREAT_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="MODIFY_NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.View_Res_Appendix”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Res_Appendix">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="APP_ID" />
+            <PropertyRef Name="IS_FOREVER" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXCELLENT_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="APP_ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="FILE_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="PAGE_VIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TYPE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="DOWNLOAD_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TYPE_ID" Type="varchar" MaxLength="40" />
+          <Property Name="ACTIVE_TIME_START" Type="datetime" />
+          <Property Name="ACTIVE_TIME_END" Type="datetime" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="APP_DEl_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="UPLOAD_TIME" Type="datetime" />
+          <Property Name="AUTHOR" Type="varchar" MaxLength="50" />
+          <Property Name="IS_FOREVER" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.View_Resource”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Resource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="TYPE_ID" Type="varchar" MaxLength="40" />
+          <Property Name="TYPE_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="UPLOAD_TIME" Type="datetime" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="LABEL" Type="varchar(max)" />
+          <Property Name="REVIEW_NUM" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="PAGE_VIEW_NUM" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="INTRODUCTION" Type="varchar" MaxLength="600" />
+          <Property Name="NOTE" Type="varchar" MaxLength="600" />
+          <Property Name="ORIGIN_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="PRAISE_PRE" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATE_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="SchoolId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.View_Resource_20160622_bak”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Resource_20160622_bak">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="TYPE_ID" Type="varchar" MaxLength="40" />
+          <Property Name="TYPE_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="UPLOAD_TIME" Type="datetime" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="LABEL" Type="varchar(max)" />
+          <Property Name="REVIEW_NUM" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="PAGE_VIEW_NUM" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="INTRODUCTION" Type="varchar" MaxLength="600" />
+          <Property Name="NOTE" Type="varchar" MaxLength="600" />
+          <Property Name="ORIGIN_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="PRAISE_PRE" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATE_NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.View_Resource_Top”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Resource_Top">
+          <Key>
+            <PropertyRef Name="RES_ID" />
+          </Key>
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RES_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="DEL_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="SHARE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="TYPE_ID" Type="varchar" MaxLength="40" />
+          <Property Name="TYPE_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="BELONG_ID" Type="varchar" MaxLength="40" />
+          <Property Name="REVIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PAGE_VIEW_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“JSZX_Resource.dbo.View_Score”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Score">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RES_ID" Type="varchar" MaxLength="40" />
+          <Property Name="GRADE" Type="numeric" Precision="18" Scale="1" />
+          <Property Name="REVIEW" Type="varchar" MaxLength="600" />
+          <Property Name="CREATEID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATETIME" Type="datetime" />
+          <Property Name="MODIFYID" Type="varchar" MaxLength="40" />
+          <Property Name="MODIFYTIME" Type="datetime" />
+          <Property Name="APPEND_ID" Type="varchar" MaxLength="40" />
+          <Property Name="CREATE_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="MODIFY_NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_Z_Homework_Comment_Z_Homework">
+          <End Role="Z_Homework" Type="Self.Z_Homework" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Z_Homework_Comment" Type="Self.Z_Homework_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Z_Homework">
+              <PropertyRef Name="HomeworkId" />
+            </Principal>
+            <Dependent Role="Z_Homework_Comment">
+              <PropertyRef Name="HomeworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Z_Homework_Student_Comment_Z_Homework_Student">
+          <End Role="Z_Homework_Student" Type="Self.Z_Homework_Student" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Z_Homework_Student_Comment" Type="Self.Z_Homework_Student_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Z_Homework_Student">
+              <PropertyRef Name="RecordId" />
+            </Principal>
+            <Dependent Role="Z_Homework_Student_Comment">
+              <PropertyRef Name="DoHomeworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Z_Homework_Student_Z_Homework">
+          <End Role="Z_Homework" Type="Self.Z_Homework" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Z_Homework_Student" Type="Self.Z_Homework_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Z_Homework">
+              <PropertyRef Name="HomeworkId" />
+            </Principal>
+            <Dependent Role="Z_Homework_Student">
+              <PropertyRef Name="HomeworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AppendixByLike" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="likeStr" Type="varchar(max)" Mode="In" />
+          <Parameter Name="dt" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="MyCollectionByLike" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="likeStr" Type="varchar(max)" Mode="In" />
+          <Parameter Name="dt" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Pro_ChangeTask" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="In" />
+          <Parameter Name="FileName" Type="varchar" Mode="In" />
+          <Parameter Name="SourceFilePath" Type="varchar(max)" Mode="In" />
+          <Parameter Name="TargetFilePath" Type="varchar(max)" Mode="In" />
+          <Parameter Name="RetSql" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="relatedAnnex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="relatedStr" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ResStatistics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TableName" Type="varchar" Mode="In" />
+          <Parameter Name="Para1" Type="varchar" Mode="In" />
+          <Parameter Name="Para2" Type="varchar" Mode="In" />
+          <Parameter Name="Para3" Type="varchar" Mode="In" />
+          <Parameter Name="Para4" Type="varchar" Mode="In" />
+          <Parameter Name="Para5" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SPT_Get_Role_Button" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="User_ID" Type="varchar" Mode="In" />
+          <Parameter Name="Menu_Code" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SPT_Menus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Role_ID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SPT_Menus_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="User_ID" Type="varchar" Mode="In" />
+          <Parameter Name="Mode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SPT_Role_One" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="JSZX_ResourceModelStoreContainer">
+          <EntitySet Name="T_Custom_Msg" EntityType="Self.T_Custom_Msg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Interface" EntityType="Self.T_Interface" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Message" EntityType="Self.T_Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_MyCollection" EntityType="Self.T_MyCollection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Receive_Message" EntityType="Self.T_Receive_Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Res_Appendix" EntityType="Self.T_Res_Appendix" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Res_Qa" EntityType="Self.T_Res_Qa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Res_Result" EntityType="Self.T_Res_Result" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Res_Score" EntityType="Self.T_Res_Score" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Res_Tag" EntityType="Self.T_Res_Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Res_Type" EntityType="Self.T_Res_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Resource" EntityType="Self.T_Resource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ToChange" EntityType="Self.T_ToChange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Version" EntityType="Self.T_Version" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Admin" EntityType="Self.Z_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Class" EntityType="Self.Z_Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Class_Student" EntityType="Self.Z_Class_Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Class_Student_Bak" EntityType="Self.Z_Class_Student_Bak" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Class_Teacher" EntityType="Self.Z_Class_Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Class_Teacher_Bak" EntityType="Self.Z_Class_Teacher_Bak" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Course" EntityType="Self.Z_Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Homework" EntityType="Self.Z_Homework" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Homework_Appendix" EntityType="Self.Z_Homework_Appendix" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Homework_Comment" EntityType="Self.Z_Homework_Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Homework_Student" EntityType="Self.Z_Homework_Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Homework_Student_Comment" EntityType="Self.Z_Homework_Student_Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Menu" EntityType="Self.Z_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_PointRule" EntityType="Self.Z_PointRule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Review_Count" EntityType="Self.Z_Review_Count" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Role" EntityType="Self.Z_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_Role_Menu" EntityType="Self.Z_Role_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_School" EntityType="Self.Z_School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_User" EntityType="Self.Z_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Z_UserPoint" EntityType="Self.Z_UserPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_MyCollection" EntityType="Self.V_MyCollection" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[V_MyCollection].[MyID] AS [MyID], 
+[V_MyCollection].[RES_ID] AS [RES_ID], 
+[V_MyCollection].[ID] AS [ID], 
+[V_MyCollection].[FILE_NAME] AS [FILE_NAME], 
+[V_MyCollection].[UPLOAD_TIME] AS [UPLOAD_TIME], 
+[V_MyCollection].[ACTIVE_TIME_START] AS [ACTIVE_TIME_START], 
+[V_MyCollection].[ACTIVE_TIME_END] AS [ACTIVE_TIME_END], 
+[V_MyCollection].[UserID] AS [UserID], 
+[V_MyCollection].[TYPE_FLG] AS [TYPE_FLG], 
+[V_MyCollection].[REVIEW_NUM] AS [REVIEW_NUM], 
+[V_MyCollection].[PRAISE_PRE] AS [PRAISE_PRE], 
+[V_MyCollection].[PAGE_VIEW_NUM] AS [PAGE_VIEW_NUM], 
+[V_MyCollection].[DOWNLOAD_NUM] AS [DOWNLOAD_NUM], 
+[V_MyCollection].[DEL_FLG] AS [DEL_FLG], 
+[V_MyCollection].[Res_DEL_FLG] AS [Res_DEL_FLG], 
+[V_MyCollection].[STATUS] AS [STATUS], 
+[V_MyCollection].[SHARE_FLG] AS [SHARE_FLG], 
+[V_MyCollection].[CREATEID] AS [CREATEID], 
+[V_MyCollection].[TYPE_ID] AS [TYPE_ID], 
+[V_MyCollection].[NAME] AS [NAME], 
+[V_MyCollection].[LABEL] AS [LABEL], 
+[V_MyCollection].[INTRODUCTION] AS [INTRODUCTION], 
+[V_MyCollection].[USER_NAME] AS [USER_NAME], 
+[V_MyCollection].[GRADE] AS [GRADE], 
+[V_MyCollection].[MyUserID] AS [MyUserID], 
+[V_MyCollection].[CreateTime] AS [CreateTime], 
+[V_MyCollection].[AUTHOR] AS [AUTHOR], 
+[V_MyCollection].[NOTE] AS [NOTE], 
+[V_MyCollection].[IS_FOREVER] AS [IS_FOREVER]
+FROM [dbo].[V_MyCollection] AS [V_MyCollection]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Public_Annex" EntityType="Self.V_Public_Annex" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[V_Public_Annex].[ID] AS [ID], 
+[V_Public_Annex].[FileName] AS [FileName], 
+[V_Public_Annex].[FileType] AS [FileType], 
+[V_Public_Annex].[SourceFilePath] AS [SourceFilePath], 
+[V_Public_Annex].[TargetFilePath] AS [TargetFilePath], 
+[V_Public_Annex].[FileFirstImg] AS [FileFirstImg], 
+[V_Public_Annex].[TypeID] AS [TypeID], 
+[V_Public_Annex].[TypeName] AS [TypeName], 
+[V_Public_Annex].[Tag] AS [Tag], 
+[V_Public_Annex].[CREATETIME] AS [CREATETIME], 
+[V_Public_Annex].[PAGECOUNT] AS [PAGECOUNT]
+FROM [dbo].[V_Public_Annex] AS [V_Public_Annex]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Public_Type" EntityType="Self.V_Public_Type" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[V_Public_Type].[id] AS [id], 
+[V_Public_Type].[pId] AS [pId], 
+[V_Public_Type].[name] AS [name], 
+[V_Public_Type].[CREATETIME] AS [CREATETIME]
+FROM [dbo].[V_Public_Type] AS [V_Public_Type]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Version" EntityType="Self.V_Version" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[V_Version].[ID] AS [ID], 
+[V_Version].[NID] AS [NID], 
+[V_Version].[OID] AS [OID], 
+[V_Version].[FileName] AS [FileName], 
+[V_Version].[VERSION_NUM] AS [VERSION_NUM], 
+[V_Version].[CreateTime] AS [CreateTime]
+FROM [dbo].[V_Version] AS [V_Version]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Appendix" EntityType="Self.View_Appendix" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Appendix].[RES_ID] AS [RES_ID], 
+[View_Appendix].[ID] AS [ID], 
+[View_Appendix].[FILE_NAME] AS [FILE_NAME], 
+[View_Appendix].[UPLOAD_TIME] AS [UPLOAD_TIME], 
+[View_Appendix].[ACTIVE_TIME_START] AS [ACTIVE_TIME_START], 
+[View_Appendix].[ACTIVE_TIME_END] AS [ACTIVE_TIME_END], 
+[View_Appendix].[UserID] AS [UserID], 
+[View_Appendix].[TYPE_FLG] AS [TYPE_FLG], 
+[View_Appendix].[REVIEW_NUM] AS [REVIEW_NUM], 
+[View_Appendix].[PRAISE_PRE] AS [PRAISE_PRE], 
+[View_Appendix].[PAGE_VIEW_NUM] AS [PAGE_VIEW_NUM], 
+[View_Appendix].[DOWNLOAD_NUM] AS [DOWNLOAD_NUM], 
+[View_Appendix].[DEL_FLG] AS [DEL_FLG], 
+[View_Appendix].[Res_DEL_FLG] AS [Res_DEL_FLG], 
+[View_Appendix].[STATUS] AS [STATUS], 
+[View_Appendix].[SHARE_FLG] AS [SHARE_FLG], 
+[View_Appendix].[CREATEID] AS [CREATEID], 
+[View_Appendix].[TYPE_ID] AS [TYPE_ID], 
+[View_Appendix].[NAME] AS [NAME], 
+[View_Appendix].[LABEL] AS [LABEL], 
+[View_Appendix].[INTRODUCTION] AS [INTRODUCTION], 
+[View_Appendix].[USER_NAME] AS [USER_NAME], 
+[View_Appendix].[GRADE] AS [GRADE], 
+[View_Appendix].[AUTHOR] AS [AUTHOR], 
+[View_Appendix].[NOTE] AS [NOTE], 
+[View_Appendix].[IS_FOREVER] AS [IS_FOREVER]
+FROM [dbo].[View_Appendix] AS [View_Appendix]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Qa" EntityType="Self.View_Qa" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Qa].[ID] AS [ID], 
+[View_Qa].[RES_ID] AS [RES_ID], 
+[View_Qa].[QUESTION] AS [QUESTION], 
+[View_Qa].[ANSWER] AS [ANSWER], 
+[View_Qa].[CREATEID] AS [CREATEID], 
+[View_Qa].[CREATETIME] AS [CREATETIME], 
+[View_Qa].[MODIFYID] AS [MODIFYID], 
+[View_Qa].[MODIFYTIME] AS [MODIFYTIME], 
+[View_Qa].[APPEND_ID] AS [APPEND_ID], 
+[View_Qa].[CREAT_NAME] AS [CREAT_NAME], 
+[View_Qa].[MODIFY_NAME] AS [MODIFY_NAME]
+FROM [dbo].[View_Qa] AS [View_Qa]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Res_Appendix" EntityType="Self.View_Res_Appendix" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Res_Appendix].[ID] AS [ID], 
+[View_Res_Appendix].[NAME] AS [NAME], 
+[View_Res_Appendix].[EXCELLENT_FLG] AS [EXCELLENT_FLG], 
+[View_Res_Appendix].[APP_ID] AS [APP_ID], 
+[View_Res_Appendix].[FILE_NAME] AS [FILE_NAME], 
+[View_Res_Appendix].[PAGE_VIEW_NUM] AS [PAGE_VIEW_NUM], 
+[View_Res_Appendix].[TYPE_FLG] AS [TYPE_FLG], 
+[View_Res_Appendix].[DOWNLOAD_NUM] AS [DOWNLOAD_NUM], 
+[View_Res_Appendix].[TYPE_ID] AS [TYPE_ID], 
+[View_Res_Appendix].[ACTIVE_TIME_START] AS [ACTIVE_TIME_START], 
+[View_Res_Appendix].[ACTIVE_TIME_END] AS [ACTIVE_TIME_END], 
+[View_Res_Appendix].[USER_NAME] AS [USER_NAME], 
+[View_Res_Appendix].[MODIFYID] AS [MODIFYID], 
+[View_Res_Appendix].[STATUS] AS [STATUS], 
+[View_Res_Appendix].[DEL_FLG] AS [DEL_FLG], 
+[View_Res_Appendix].[APP_DEl_FLG] AS [APP_DEl_FLG], 
+[View_Res_Appendix].[UPLOAD_TIME] AS [UPLOAD_TIME], 
+[View_Res_Appendix].[AUTHOR] AS [AUTHOR], 
+[View_Res_Appendix].[IS_FOREVER] AS [IS_FOREVER]
+FROM [dbo].[View_Res_Appendix] AS [View_Res_Appendix]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Resource" EntityType="Self.View_Resource" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Resource].[ID] AS [ID], 
+[View_Resource].[NAME] AS [NAME], 
+[View_Resource].[TYPE_ID] AS [TYPE_ID], 
+[View_Resource].[TYPE_NAME] AS [TYPE_NAME], 
+[View_Resource].[UPLOAD_TIME] AS [UPLOAD_TIME], 
+[View_Resource].[STATUS] AS [STATUS], 
+[View_Resource].[DEL_FLG] AS [DEL_FLG], 
+[View_Resource].[LABEL] AS [LABEL], 
+[View_Resource].[REVIEW_NUM] AS [REVIEW_NUM], 
+[View_Resource].[PAGE_VIEW_NUM] AS [PAGE_VIEW_NUM], 
+[View_Resource].[DOWNLOAD_NUM] AS [DOWNLOAD_NUM], 
+[View_Resource].[INTRODUCTION] AS [INTRODUCTION], 
+[View_Resource].[NOTE] AS [NOTE], 
+[View_Resource].[ORIGIN_FLG] AS [ORIGIN_FLG], 
+[View_Resource].[PRAISE_PRE] AS [PRAISE_PRE], 
+[View_Resource].[MODIFYID] AS [MODIFYID], 
+[View_Resource].[USER_NAME] AS [USER_NAME], 
+[View_Resource].[CREATEID] AS [CREATEID], 
+[View_Resource].[CREATE_NAME] AS [CREATE_NAME], 
+[View_Resource].[SchoolId] AS [SchoolId]
+FROM [dbo].[View_Resource] AS [View_Resource]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Resource_20160622_bak" EntityType="Self.View_Resource_20160622_bak" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Resource_20160622_bak].[ID] AS [ID], 
+[View_Resource_20160622_bak].[NAME] AS [NAME], 
+[View_Resource_20160622_bak].[TYPE_ID] AS [TYPE_ID], 
+[View_Resource_20160622_bak].[TYPE_NAME] AS [TYPE_NAME], 
+[View_Resource_20160622_bak].[UPLOAD_TIME] AS [UPLOAD_TIME], 
+[View_Resource_20160622_bak].[STATUS] AS [STATUS], 
+[View_Resource_20160622_bak].[DEL_FLG] AS [DEL_FLG], 
+[View_Resource_20160622_bak].[LABEL] AS [LABEL], 
+[View_Resource_20160622_bak].[REVIEW_NUM] AS [REVIEW_NUM], 
+[View_Resource_20160622_bak].[PAGE_VIEW_NUM] AS [PAGE_VIEW_NUM], 
+[View_Resource_20160622_bak].[DOWNLOAD_NUM] AS [DOWNLOAD_NUM], 
+[View_Resource_20160622_bak].[INTRODUCTION] AS [INTRODUCTION], 
+[View_Resource_20160622_bak].[NOTE] AS [NOTE], 
+[View_Resource_20160622_bak].[ORIGIN_FLG] AS [ORIGIN_FLG], 
+[View_Resource_20160622_bak].[PRAISE_PRE] AS [PRAISE_PRE], 
+[View_Resource_20160622_bak].[MODIFYID] AS [MODIFYID], 
+[View_Resource_20160622_bak].[USER_NAME] AS [USER_NAME], 
+[View_Resource_20160622_bak].[CREATEID] AS [CREATEID], 
+[View_Resource_20160622_bak].[CREATE_NAME] AS [CREATE_NAME]
+FROM [dbo].[View_Resource_20160622_bak] AS [View_Resource_20160622_bak]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Resource_Top" EntityType="Self.View_Resource_Top" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Resource_Top].[RES_ID] AS [RES_ID], 
+[View_Resource_Top].[RES_NAME] AS [RES_NAME], 
+[View_Resource_Top].[STATUS] AS [STATUS], 
+[View_Resource_Top].[DEL_FLG] AS [DEL_FLG], 
+[View_Resource_Top].[SHARE_FLG] AS [SHARE_FLG], 
+[View_Resource_Top].[CREATEID] AS [CREATEID], 
+[View_Resource_Top].[CREATETIME] AS [CREATETIME], 
+[View_Resource_Top].[TYPE_ID] AS [TYPE_ID], 
+[View_Resource_Top].[TYPE_NAME] AS [TYPE_NAME], 
+[View_Resource_Top].[BELONG_ID] AS [BELONG_ID], 
+[View_Resource_Top].[REVIEW_NUM] AS [REVIEW_NUM], 
+[View_Resource_Top].[PAGE_VIEW_NUM] AS [PAGE_VIEW_NUM], 
+[View_Resource_Top].[DOWNLOAD_NUM] AS [DOWNLOAD_NUM], 
+[View_Resource_Top].[PRAISE_PRE] AS [PRAISE_PRE], 
+[View_Resource_Top].[USER_NAME] AS [USER_NAME]
+FROM [dbo].[View_Resource_Top] AS [View_Resource_Top]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Score" EntityType="Self.View_Score" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_Score].[ID] AS [ID], 
+[View_Score].[RES_ID] AS [RES_ID], 
+[View_Score].[GRADE] AS [GRADE], 
+[View_Score].[REVIEW] AS [REVIEW], 
+[View_Score].[CREATEID] AS [CREATEID], 
+[View_Score].[CREATETIME] AS [CREATETIME], 
+[View_Score].[MODIFYID] AS [MODIFYID], 
+[View_Score].[MODIFYTIME] AS [MODIFYTIME], 
+[View_Score].[APPEND_ID] AS [APPEND_ID], 
+[View_Score].[CREATE_NAME] AS [CREATE_NAME], 
+[View_Score].[MODIFY_NAME] AS [MODIFY_NAME]
+FROM [dbo].[View_Score] AS [View_Score]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Z_Homework_Comment_Z_Homework" Association="Self.FK_Z_Homework_Comment_Z_Homework">
+            <End Role="Z_Homework" EntitySet="Z_Homework" />
+            <End Role="Z_Homework_Comment" EntitySet="Z_Homework_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Z_Homework_Student_Comment_Z_Homework_Student" Association="Self.FK_Z_Homework_Student_Comment_Z_Homework_Student">
+            <End Role="Z_Homework_Student" EntitySet="Z_Homework_Student" />
+            <End Role="Z_Homework_Student_Comment" EntitySet="Z_Homework_Student_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Z_Homework_Student_Z_Homework" Association="Self.FK_Z_Homework_Student_Z_Homework">
+            <End Role="Z_Homework" EntitySet="Z_Homework" />
+            <End Role="Z_Homework_Student" EntitySet="Z_Homework_Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JSZX_ResourceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="T_Custom_Msg">
+          <Key>
+            <PropertyRef Name="Table_Id" />
+          </Key>
+          <Property Name="Table_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Msg_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Receiver_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Table_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Table_Project" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Interface">
+          <Key>
+            <PropertyRef Name="Interface_ID" />
+          </Key>
+          <Property Name="Interface_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Message">
+          <Key>
+            <PropertyRef Name="Msg_Id" />
+          </Key>
+          <Property Name="Msg_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Msg_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Msg_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Send_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Send_Time" Type="DateTime" Precision="3" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_MyCollection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Receive_Message">
+          <Key>
+            <PropertyRef Name="Record_Id" />
+          </Key>
+          <Property Name="Msg_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Receiver_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Receiver_Time" Type="DateTime" Precision="3" />
+          <Property Name="Msg_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Record_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Msg_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Msg_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Send_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Send_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Res_Appendix">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UPLOAD_TIME" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVE_TIME_START" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVE_TIME_END" Type="DateTime" Precision="3" />
+          <Property Name="NOTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYTIME" Type="DateTime" Precision="3" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="READ_URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PAGECOUNT" Type="Int32" Nullable="false" />
+          <Property Name="AUTHOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_FOREVER" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Res_Qa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="QUESTION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="ANSWER" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYTIME" Type="DateTime" Precision="3" />
+          <Property Name="APPEND_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Res_Result">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="REVIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PAGE_VIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYTIME" Type="DateTime" Precision="3" />
+          <Property Name="APPEND_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Res_Score">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="GRADE" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="REVIEW" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYTIME" Type="DateTime" Precision="3" />
+          <Property Name="APPEND_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Res_Tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PARENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="PY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Res_Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="BELONG_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Resource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="LABEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SHARE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYTIME" Type="DateTime" Precision="3" />
+          <Property Name="INTRODUCTION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="ORIGIN_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EXCELLENT_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_ToChange">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SourceFilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TargetFilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RetSql" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TaskTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VERSION_NUM" Type="Int32" Nullable="false" />
+          <Property Name="USERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Z_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Del" Type="Boolean" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="EditMan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Class">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClassName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Class_Student">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClassId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Class_Student_Bak">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClassId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Class_Teacher">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SchoolId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TeacherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Class_Teacher_Bak">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SchoolId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClassId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TeacherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Course">
+          <Key>
+            <PropertyRef Name="CourseId" />
+          </Key>
+          <Property Name="CourseId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Homework">
+          <Key>
+            <PropertyRef Name="HomeworkId" />
+          </Key>
+          <Property Name="HomeworkId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HomeworkName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TeacherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Z_Homework_Comment" Relationship="Self.FK_Z_Homework_Comment_Z_Homework" FromRole="Z_Homework" ToRole="Z_Homework_Comment" />
+          <NavigationProperty Name="Z_Homework_Student" Relationship="Self.FK_Z_Homework_Student_Z_Homework" FromRole="Z_Homework" ToRole="Z_Homework_Student" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Appendix">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HomeworkId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="READ_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PAGECOUNT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Comment">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HomeworkId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReplyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Z_Homework" Relationship="Self.FK_Z_Homework_Comment_Z_Homework" FromRole="Z_Homework_Comment" ToRole="Z_Homework" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Student">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HomeworkId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsRecommend" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Z_Homework" Relationship="Self.FK_Z_Homework_Student_Z_Homework" FromRole="Z_Homework_Student" ToRole="Z_Homework" />
+          <NavigationProperty Name="Z_Homework_Student_Comment" Relationship="Self.FK_Z_Homework_Student_Comment_Z_Homework_Student" FromRole="Z_Homework_Student" ToRole="Z_Homework_Student_Comment" />
+        </EntityType>
+        <EntityType Name="Z_Homework_Student_Comment">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoHomeworkId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Z_Homework_Student" Relationship="Self.FK_Z_Homework_Student_Comment_Z_Homework_Student" FromRole="Z_Homework_Student_Comment" ToRole="Z_Homework_Student" />
+        </EntityType>
+        <EntityType Name="Z_Menu">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Menu" Type="Boolean" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Button" Type="Boolean" />
+          <Property Name="OB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Del" Type="Boolean" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="EditMan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_PointRule">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PointRuleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Point" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Z_Review_Count">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SiteId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Z_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Del" Type="Boolean" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="EditMan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_Role_Menu">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+            <PropertyRef Name="Menu_Code" />
+          </Key>
+          <Property Name="Role_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Menu_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Del" Type="Boolean" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="EditMan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_School">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Z_User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Login_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataRole" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PageRole_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PageRole_IP_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="IP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GUID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Link_Count" Type="Int32" />
+          <Property Name="Login_Time" Type="DateTime" Precision="3" />
+          <Property Name="Del" Type="Boolean" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="EditMan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="isSeven" Type="Boolean" Nullable="false" />
+          <Property Name="SchoolId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsCmsAdmin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IsMonitorAdmin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Z_UserPoint">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResourceId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Point" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_MyCollection">
+          <Key>
+            <PropertyRef Name="MyID" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MyUserID" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="IS_FOREVER" />
+          </Key>
+          <Property Name="MyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UPLOAD_TIME" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVE_TIME_START" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVE_TIME_END" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="REVIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PAGE_VIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Res_DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SHARE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LABEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INTRODUCTION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GRADE" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="MyUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUTHOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="IS_FOREVER" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_Public_Annex">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="PAGECOUNT" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FileType" Type="Int32" />
+          <Property Name="SourceFilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TargetFilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FileFirstImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TypeID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="PAGECOUNT" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_Public_Type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="V_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NID" />
+            <PropertyRef Name="OID" />
+            <PropertyRef Name="VERSION_NUM" />
+            <PropertyRef Name="CreateTime" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VERSION_NUM" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="View_Appendix">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IS_FOREVER" />
+          </Key>
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UPLOAD_TIME" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVE_TIME_START" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVE_TIME_END" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="REVIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PAGE_VIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Res_DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SHARE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LABEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INTRODUCTION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GRADE" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="AUTHOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="IS_FOREVER" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Qa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="QUESTION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="ANSWER" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYTIME" Type="DateTime" Precision="3" />
+          <Property Name="APPEND_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREAT_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFY_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Res_Appendix">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="APP_ID" />
+            <PropertyRef Name="IS_FOREVER" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXCELLENT_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="APP_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PAGE_VIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TYPE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOWNLOAD_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TYPE_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE_TIME_START" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVE_TIME_END" Type="DateTime" Precision="3" />
+          <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="APP_DEl_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UPLOAD_TIME" Type="DateTime" Precision="3" />
+          <Property Name="AUTHOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_FOREVER" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Resource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UPLOAD_TIME" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LABEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="REVIEW_NUM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PAGE_VIEW_NUM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INTRODUCTION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="ORIGIN_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PRAISE_PRE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Resource_20160622_bak">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UPLOAD_TIME" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LABEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="REVIEW_NUM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PAGE_VIEW_NUM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INTRODUCTION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="ORIGIN_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PRAISE_PRE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Resource_Top">
+          <Key>
+            <PropertyRef Name="RES_ID" />
+          </Key>
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DEL_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SHARE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="TYPE_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BELONG_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="REVIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PAGE_VIEW_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DOWNLOAD_NUM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PRAISE_PRE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Score">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RES_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="GRADE" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="REVIEW" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" Precision="3" />
+          <Property Name="MODIFYID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFYTIME" Type="DateTime" Precision="3" />
+          <Property Name="APPEND_ID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFY_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Z_Homework_Comment_Z_Homework">
+          <End Role="Z_Homework" Type="Self.Z_Homework" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Z_Homework_Comment" Type="Self.Z_Homework_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Z_Homework">
+              <PropertyRef Name="HomeworkId" />
+            </Principal>
+            <Dependent Role="Z_Homework_Comment">
+              <PropertyRef Name="HomeworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Z_Homework_Student_Z_Homework">
+          <End Role="Z_Homework" Type="Self.Z_Homework" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Z_Homework_Student" Type="Self.Z_Homework_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Z_Homework">
+              <PropertyRef Name="HomeworkId" />
+            </Principal>
+            <Dependent Role="Z_Homework_Student">
+              <PropertyRef Name="HomeworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Z_Homework_Student_Comment_Z_Homework_Student">
+          <End Role="Z_Homework_Student" Type="Self.Z_Homework_Student" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Z_Homework_Student_Comment" Type="Self.Z_Homework_Student_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Z_Homework_Student">
+              <PropertyRef Name="RecordId" />
+            </Principal>
+            <Dependent Role="Z_Homework_Student_Comment">
+              <PropertyRef Name="DoHomeworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JSZX_ResourceEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Custom_Msg" EntityType="Self.T_Custom_Msg" />
+          <EntitySet Name="T_Interface" EntityType="Self.T_Interface" />
+          <EntitySet Name="T_Message" EntityType="Self.T_Message" />
+          <EntitySet Name="T_MyCollection" EntityType="Self.T_MyCollection" />
+          <EntitySet Name="T_Receive_Message" EntityType="Self.T_Receive_Message" />
+          <EntitySet Name="T_Res_Appendix" EntityType="Self.T_Res_Appendix" />
+          <EntitySet Name="T_Res_Qa" EntityType="Self.T_Res_Qa" />
+          <EntitySet Name="T_Res_Result" EntityType="Self.T_Res_Result" />
+          <EntitySet Name="T_Res_Score" EntityType="Self.T_Res_Score" />
+          <EntitySet Name="T_Res_Tag" EntityType="Self.T_Res_Tag" />
+          <EntitySet Name="T_Res_Type" EntityType="Self.T_Res_Type" />
+          <EntitySet Name="T_Resource" EntityType="Self.T_Resource" />
+          <EntitySet Name="T_ToChange" EntityType="Self.T_ToChange" />
+          <EntitySet Name="T_Version" EntityType="Self.T_Version" />
+          <EntitySet Name="Z_Admin" EntityType="Self.Z_Admin" />
+          <EntitySet Name="Z_Class" EntityType="Self.Z_Class" />
+          <EntitySet Name="Z_Class_Student" EntityType="Self.Z_Class_Student" />
+          <EntitySet Name="Z_Class_Student_Bak" EntityType="Self.Z_Class_Student_Bak" />
+          <EntitySet Name="Z_Class_Teacher" EntityType="Self.Z_Class_Teacher" />
+          <EntitySet Name="Z_Class_Teacher_Bak" EntityType="Self.Z_Class_Teacher_Bak" />
+          <EntitySet Name="Z_Course" EntityType="Self.Z_Course" />
+          <EntitySet Name="Z_Homework" EntityType="Self.Z_Homework" />
+          <EntitySet Name="Z_Homework_Appendix" EntityType="Self.Z_Homework_Appendix" />
+          <EntitySet Name="Z_Homework_Comment" EntityType="Self.Z_Homework_Comment" />
+          <EntitySet Name="Z_Homework_Student" EntityType="Self.Z_Homework_Student" />
+          <EntitySet Name="Z_Homework_Student_Comment" EntityType="Self.Z_Homework_Student_Comment" />
+          <EntitySet Name="Z_Menu" EntityType="Self.Z_Menu" />
+          <EntitySet Name="Z_PointRule" EntityType="Self.Z_PointRule" />
+          <EntitySet Name="Z_Review_Count" EntityType="Self.Z_Review_Count" />
+          <EntitySet Name="Z_Role" EntityType="Self.Z_Role" />
+          <EntitySet Name="Z_Role_Menu" EntityType="Self.Z_Role_Menu" />
+          <EntitySet Name="Z_School" EntityType="Self.Z_School" />
+          <EntitySet Name="Z_User" EntityType="Self.Z_User" />
+          <EntitySet Name="Z_UserPoint" EntityType="Self.Z_UserPoint" />
+          <EntitySet Name="V_MyCollection" EntityType="Self.V_MyCollection" />
+          <EntitySet Name="V_Public_Annex" EntityType="Self.V_Public_Annex" />
+          <EntitySet Name="V_Public_Type" EntityType="Self.V_Public_Type" />
+          <EntitySet Name="V_Version" EntityType="Self.V_Version" />
+          <EntitySet Name="View_Appendix" EntityType="Self.View_Appendix" />
+          <EntitySet Name="View_Qa" EntityType="Self.View_Qa" />
+          <EntitySet Name="View_Res_Appendix" EntityType="Self.View_Res_Appendix" />
+          <EntitySet Name="View_Resource" EntityType="Self.View_Resource" />
+          <EntitySet Name="View_Resource_20160622_bak" EntityType="Self.View_Resource_20160622_bak" />
+          <EntitySet Name="View_Resource_Top" EntityType="Self.View_Resource_Top" />
+          <EntitySet Name="View_Score" EntityType="Self.View_Score" />
+          <AssociationSet Name="FK_Z_Homework_Comment_Z_Homework" Association="Self.FK_Z_Homework_Comment_Z_Homework">
+            <End Role="Z_Homework" EntitySet="Z_Homework" />
+            <End Role="Z_Homework_Comment" EntitySet="Z_Homework_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Z_Homework_Student_Z_Homework" Association="Self.FK_Z_Homework_Student_Z_Homework">
+            <End Role="Z_Homework" EntitySet="Z_Homework" />
+            <End Role="Z_Homework_Student" EntitySet="Z_Homework_Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Z_Homework_Student_Comment_Z_Homework_Student" Association="Self.FK_Z_Homework_Student_Comment_Z_Homework_Student">
+            <End Role="Z_Homework_Student" EntitySet="Z_Homework_Student" />
+            <End Role="Z_Homework_Student_Comment" EntitySet="Z_Homework_Student_Comment" />
+          </AssociationSet>
+          <FunctionImport Name="AppendixByLike" ReturnType="Collection(JSZX_ResourceModel.AppendixByLike_Result)">
+            <Parameter Name="likeStr" Mode="In" Type="String" />
+            <Parameter Name="dt" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="MyCollectionByLike" ReturnType="Collection(JSZX_ResourceModel.MyCollectionByLike_Result)">
+            <Parameter Name="likeStr" Mode="In" Type="String" />
+            <Parameter Name="dt" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_ChangeTask">
+            <Parameter Name="ID" Mode="In" Type="String" />
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="SourceFilePath" Mode="In" Type="String" />
+            <Parameter Name="TargetFilePath" Mode="In" Type="String" />
+            <Parameter Name="RetSql" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="relatedAnnex">
+            <Parameter Name="relatedStr" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ResStatistics" ReturnType="Collection(JSZX_ResourceModel.ResStatistics_Result)" />
+          <FunctionImport Name="SP_Delete">
+            <Parameter Name="TableName" Mode="In" Type="String" />
+            <Parameter Name="Para1" Mode="In" Type="String" />
+            <Parameter Name="Para2" Mode="In" Type="String" />
+            <Parameter Name="Para3" Mode="In" Type="String" />
+            <Parameter Name="Para4" Mode="In" Type="String" />
+            <Parameter Name="Para5" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPT_Get_Role_Button" ReturnType="Collection(JSZX_ResourceModel.SPT_Get_Role_Button_Result)">
+            <Parameter Name="User_ID" Mode="In" Type="String" />
+            <Parameter Name="Menu_Code" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPT_Menus" ReturnType="Collection(JSZX_ResourceModel.SPT_Menus_Result)">
+            <Parameter Name="Role_ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPT_Menus_User" ReturnType="Collection(JSZX_ResourceModel.SPT_Menus_User_Result)">
+            <Parameter Name="User_ID" Mode="In" Type="String" />
+            <Parameter Name="Mode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPT_Role_One" ReturnType="Collection(JSZX_ResourceModel.SPT_Role_One_Result)">
+            <Parameter Name="ID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="AppendixByLike_Result">
+          <Property Type="String" Name="RES_ID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="ID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="FILE_NAME" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="UPLOAD_TIME" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ACTIVE_TIME_START" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ACTIVE_TIME_END" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UserID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="TYPE_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="REVIEW_NUM" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PRAISE_PRE" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PAGE_VIEW_NUM" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="DOWNLOAD_NUM" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="DEL_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Res_DEL_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="STATUS" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="SHARE_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CREATEID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="TYPE_ID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LABEL" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="INTRODUCTION" Nullable="true" MaxLength="600" />
+          <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GRADE" Nullable="true" Precision="18" Scale="1" />
+          <Property Type="String" Name="AUTHOR" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IS_FOREVER" Nullable="true" />
+          <Property Type="Int32" Name="num" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="MyCollectionByLike_Result">
+          <Property Type="String" Name="MyID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RES_ID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="ID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="FILE_NAME" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="UPLOAD_TIME" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ACTIVE_TIME_START" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ACTIVE_TIME_END" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UserID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="TYPE_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="REVIEW_NUM" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PRAISE_PRE" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PAGE_VIEW_NUM" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="DOWNLOAD_NUM" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="DEL_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Res_DEL_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="STATUS" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="SHARE_FLG" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CREATEID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="TYPE_ID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LABEL" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="INTRODUCTION" Nullable="true" MaxLength="600" />
+          <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GRADE" Nullable="true" Precision="18" Scale="1" />
+          <Property Type="String" Name="MyUserID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="AUTHOR" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IS_FOREVER" Nullable="true" />
+          <Property Type="Int32" Name="num" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ResStatistics_Result">
+          <Property Type="String" Name="CREATEID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CREATE_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="allFile" Nullable="true" />
+          <Property Type="Int32" Name="DOWNLOAD_NUM" Nullable="true" />
+          <Property Type="Int32" Name="VIEW_NUM" Nullable="true" />
+          <Property Type="Decimal" Name="PRAISE_PRE" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="SPT_Get_Role_Button_Result">
+          <Property Type="String" Name="Menu_Code" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SPT_Menus_Result">
+          <Property Type="String" Name="id" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="pId" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="is_checked" Nullable="false" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="SPT_Menus_User_Result">
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Class" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="HaveChild" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="SPT_Role_One_Result">
+          <Property Type="String" Name="ID" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JSZX_ResourceModelStoreContainer" CdmEntityContainer="JSZX_ResourceEntities1">
+          <EntitySetMapping Name="T_Custom_Msg">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Custom_Msg">
+              <MappingFragment StoreEntitySet="T_Custom_Msg">
+                <ScalarProperty Name="Table_Id" ColumnName="Table_Id" />
+                <ScalarProperty Name="Msg_Id" ColumnName="Msg_Id" />
+                <ScalarProperty Name="Receiver_Id" ColumnName="Receiver_Id" />
+                <ScalarProperty Name="Table_Title" ColumnName="Table_Title" />
+                <ScalarProperty Name="Table_Project" ColumnName="Table_Project" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Interface">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Interface">
+              <MappingFragment StoreEntitySet="T_Interface">
+                <ScalarProperty Name="Interface_ID" ColumnName="Interface_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Message">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Message">
+              <MappingFragment StoreEntitySet="T_Message">
+                <ScalarProperty Name="Msg_Id" ColumnName="Msg_Id" />
+                <ScalarProperty Name="Msg_Title" ColumnName="Msg_Title" />
+                <ScalarProperty Name="Msg_Content" ColumnName="Msg_Content" />
+                <ScalarProperty Name="Send_Id" ColumnName="Send_Id" />
+                <ScalarProperty Name="Send_Time" ColumnName="Send_Time" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_MyCollection">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_MyCollection">
+              <MappingFragment StoreEntitySet="T_MyCollection">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="AID" ColumnName="AID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Receive_Message">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Receive_Message">
+              <MappingFragment StoreEntitySet="T_Receive_Message">
+                <ScalarProperty Name="Msg_Id" ColumnName="Msg_Id" />
+                <ScalarProperty Name="Receiver_Id" ColumnName="Receiver_Id" />
+                <ScalarProperty Name="Receiver_Time" ColumnName="Receiver_Time" />
+                <ScalarProperty Name="Msg_Status" ColumnName="Msg_Status" />
+                <ScalarProperty Name="Record_Id" ColumnName="Record_Id" />
+                <ScalarProperty Name="Msg_Title" ColumnName="Msg_Title" />
+                <ScalarProperty Name="Msg_Content" ColumnName="Msg_Content" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Send_Id" ColumnName="Send_Id" />
+                <ScalarProperty Name="Send_Time" ColumnName="Send_Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Res_Appendix">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Res_Appendix">
+              <MappingFragment StoreEntitySet="T_Res_Appendix">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="ACTIVE_TIME_START" ColumnName="ACTIVE_TIME_START" />
+                <ScalarProperty Name="ACTIVE_TIME_END" ColumnName="ACTIVE_TIME_END" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="MODIFYTIME" ColumnName="MODIFYTIME" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="TYPE_FLG" ColumnName="TYPE_FLG" />
+                <ScalarProperty Name="FILE_URL" ColumnName="FILE_URL" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="READ_URL" ColumnName="READ_URL" />
+                <ScalarProperty Name="PAGECOUNT" ColumnName="PAGECOUNT" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="IS_FOREVER" ColumnName="IS_FOREVER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Res_Qa">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Res_Qa">
+              <MappingFragment StoreEntitySet="T_Res_Qa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="QUESTION" ColumnName="QUESTION" />
+                <ScalarProperty Name="ANSWER" ColumnName="ANSWER" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="MODIFYTIME" ColumnName="MODIFYTIME" />
+                <ScalarProperty Name="APPEND_ID" ColumnName="APPEND_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Res_Result">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Res_Result">
+              <MappingFragment StoreEntitySet="T_Res_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="MODIFYTIME" ColumnName="MODIFYTIME" />
+                <ScalarProperty Name="APPEND_ID" ColumnName="APPEND_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Res_Score">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Res_Score">
+              <MappingFragment StoreEntitySet="T_Res_Score">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+                <ScalarProperty Name="REVIEW" ColumnName="REVIEW" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="MODIFYTIME" ColumnName="MODIFYTIME" />
+                <ScalarProperty Name="APPEND_ID" ColumnName="APPEND_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Res_Tag">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Res_Tag">
+              <MappingFragment StoreEntitySet="T_Res_Tag">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PARENTID" ColumnName="PARENTID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="PY" ColumnName="PY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Res_Type">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Res_Type">
+              <MappingFragment StoreEntitySet="T_Res_Type">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="BELONG_ID" ColumnName="BELONG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Resource">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Resource">
+              <MappingFragment StoreEntitySet="T_Resource">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="SHARE_FLG" ColumnName="SHARE_FLG" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="MODIFYTIME" ColumnName="MODIFYTIME" />
+                <ScalarProperty Name="INTRODUCTION" ColumnName="INTRODUCTION" />
+                <ScalarProperty Name="ORIGIN_FLG" ColumnName="ORIGIN_FLG" />
+                <ScalarProperty Name="EXCELLENT_FLG" ColumnName="EXCELLENT_FLG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ToChange">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_ToChange">
+              <MappingFragment StoreEntitySet="T_ToChange">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="SourceFilePath" ColumnName="SourceFilePath" />
+                <ScalarProperty Name="TargetFilePath" ColumnName="TargetFilePath" />
+                <ScalarProperty Name="RetSql" ColumnName="RetSql" />
+                <ScalarProperty Name="TaskTime" ColumnName="TaskTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Version">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.T_Version">
+              <MappingFragment StoreEntitySet="T_Version">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="VERSION_NUM" ColumnName="VERSION_NUM" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Admin">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Admin">
+              <MappingFragment StoreEntitySet="Z_Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Del" ColumnName="Del" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="EditMan" ColumnName="EditMan" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Class">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Class">
+              <MappingFragment StoreEntitySet="Z_Class">
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Class_Student">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Class_Student">
+              <MappingFragment StoreEntitySet="Z_Class_Student">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Class_Student_Bak">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Class_Student_Bak">
+              <MappingFragment StoreEntitySet="Z_Class_Student_Bak">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Class_Teacher">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Class_Teacher">
+              <MappingFragment StoreEntitySet="Z_Class_Teacher">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Class_Teacher_Bak">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Class_Teacher_Bak">
+              <MappingFragment StoreEntitySet="Z_Class_Teacher_Bak">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Course">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Course">
+              <MappingFragment StoreEntitySet="Z_Course">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Homework">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Homework">
+              <MappingFragment StoreEntitySet="Z_Homework">
+                <ScalarProperty Name="HomeworkId" ColumnName="HomeworkId" />
+                <ScalarProperty Name="HomeworkName" ColumnName="HomeworkName" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Homework_Appendix">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Homework_Appendix">
+              <MappingFragment StoreEntitySet="Z_Homework_Appendix">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="HomeworkId" ColumnName="HomeworkId" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="TYPE_FLG" ColumnName="TYPE_FLG" />
+                <ScalarProperty Name="FILE_URL" ColumnName="FILE_URL" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="READ_URL" ColumnName="READ_URL" />
+                <ScalarProperty Name="PAGECOUNT" ColumnName="PAGECOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Homework_Comment">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Homework_Comment">
+              <MappingFragment StoreEntitySet="Z_Homework_Comment">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="HomeworkId" ColumnName="HomeworkId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ReplyUserId" ColumnName="ReplyUserId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Homework_Student">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Homework_Student">
+              <MappingFragment StoreEntitySet="Z_Homework_Student">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="HomeworkId" ColumnName="HomeworkId" />
+                <ScalarProperty Name="IsRecommend" ColumnName="IsRecommend" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Homework_Student_Comment">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Homework_Student_Comment">
+              <MappingFragment StoreEntitySet="Z_Homework_Student_Comment">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="DoHomeworkId" ColumnName="DoHomeworkId" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Menu">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Menu">
+              <MappingFragment StoreEntitySet="Z_Menu">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Is_Menu" ColumnName="Is_Menu" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Is_Button" ColumnName="Is_Button" />
+                <ScalarProperty Name="OB" ColumnName="OB" />
+                <ScalarProperty Name="Del" ColumnName="Del" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="EditMan" ColumnName="EditMan" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_PointRule">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_PointRule">
+              <MappingFragment StoreEntitySet="Z_PointRule">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="PointRuleName" ColumnName="PointRuleName" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Review_Count">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Review_Count">
+              <MappingFragment StoreEntitySet="Z_Review_Count">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Role">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Role">
+              <MappingFragment StoreEntitySet="Z_Role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Del" ColumnName="Del" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="EditMan" ColumnName="EditMan" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_Role_Menu">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_Role_Menu">
+              <MappingFragment StoreEntitySet="Z_Role_Menu">
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Del" ColumnName="Del" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="EditMan" ColumnName="EditMan" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_School">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_School">
+              <MappingFragment StoreEntitySet="Z_School">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_User">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_User">
+              <MappingFragment StoreEntitySet="Z_User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login_Name" ColumnName="Login_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DataRole" ColumnName="DataRole" />
+                <ScalarProperty Name="PageRole_ID" ColumnName="PageRole_ID" />
+                <ScalarProperty Name="PageRole_IP_ID" ColumnName="PageRole_IP_ID" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Link_Count" ColumnName="Link_Count" />
+                <ScalarProperty Name="Login_Time" ColumnName="Login_Time" />
+                <ScalarProperty Name="Del" ColumnName="Del" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="EditMan" ColumnName="EditMan" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="isSeven" ColumnName="isSeven" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SchoolDate" ColumnName="SchoolDate" />
+                <ScalarProperty Name="IsCmsAdmin" ColumnName="IsCmsAdmin" />
+                <ScalarProperty Name="IsMonitorAdmin" ColumnName="IsMonitorAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Z_UserPoint">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.Z_UserPoint">
+              <MappingFragment StoreEntitySet="Z_UserPoint">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_MyCollection">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.V_MyCollection">
+              <MappingFragment StoreEntitySet="V_MyCollection">
+                <ScalarProperty Name="MyID" ColumnName="MyID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="ACTIVE_TIME_START" ColumnName="ACTIVE_TIME_START" />
+                <ScalarProperty Name="ACTIVE_TIME_END" ColumnName="ACTIVE_TIME_END" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TYPE_FLG" ColumnName="TYPE_FLG" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="Res_DEL_FLG" ColumnName="Res_DEL_FLG" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="SHARE_FLG" ColumnName="SHARE_FLG" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="INTRODUCTION" ColumnName="INTRODUCTION" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+                <ScalarProperty Name="MyUserID" ColumnName="MyUserID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="IS_FOREVER" ColumnName="IS_FOREVER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Public_Annex">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.V_Public_Annex">
+              <MappingFragment StoreEntitySet="V_Public_Annex">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="SourceFilePath" ColumnName="SourceFilePath" />
+                <ScalarProperty Name="TargetFilePath" ColumnName="TargetFilePath" />
+                <ScalarProperty Name="FileFirstImg" ColumnName="FileFirstImg" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="PAGECOUNT" ColumnName="PAGECOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Public_Type">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.V_Public_Type">
+              <MappingFragment StoreEntitySet="V_Public_Type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Version">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.V_Version">
+              <MappingFragment StoreEntitySet="V_Version">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="VERSION_NUM" ColumnName="VERSION_NUM" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Appendix">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.View_Appendix">
+              <MappingFragment StoreEntitySet="View_Appendix">
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="ACTIVE_TIME_START" ColumnName="ACTIVE_TIME_START" />
+                <ScalarProperty Name="ACTIVE_TIME_END" ColumnName="ACTIVE_TIME_END" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TYPE_FLG" ColumnName="TYPE_FLG" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="Res_DEL_FLG" ColumnName="Res_DEL_FLG" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="SHARE_FLG" ColumnName="SHARE_FLG" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="INTRODUCTION" ColumnName="INTRODUCTION" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="IS_FOREVER" ColumnName="IS_FOREVER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Qa">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.View_Qa">
+              <MappingFragment StoreEntitySet="View_Qa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="QUESTION" ColumnName="QUESTION" />
+                <ScalarProperty Name="ANSWER" ColumnName="ANSWER" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="MODIFYTIME" ColumnName="MODIFYTIME" />
+                <ScalarProperty Name="APPEND_ID" ColumnName="APPEND_ID" />
+                <ScalarProperty Name="CREAT_NAME" ColumnName="CREAT_NAME" />
+                <ScalarProperty Name="MODIFY_NAME" ColumnName="MODIFY_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Res_Appendix">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.View_Res_Appendix">
+              <MappingFragment StoreEntitySet="View_Res_Appendix">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EXCELLENT_FLG" ColumnName="EXCELLENT_FLG" />
+                <ScalarProperty Name="APP_ID" ColumnName="APP_ID" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="TYPE_FLG" ColumnName="TYPE_FLG" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="ACTIVE_TIME_START" ColumnName="ACTIVE_TIME_START" />
+                <ScalarProperty Name="ACTIVE_TIME_END" ColumnName="ACTIVE_TIME_END" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="APP_DEl_FLG" ColumnName="APP_DEl_FLG" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="IS_FOREVER" ColumnName="IS_FOREVER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Resource">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.View_Resource">
+              <MappingFragment StoreEntitySet="View_Resource">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="TYPE_NAME" ColumnName="TYPE_NAME" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="INTRODUCTION" ColumnName="INTRODUCTION" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="ORIGIN_FLG" ColumnName="ORIGIN_FLG" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATE_NAME" ColumnName="CREATE_NAME" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Resource_20160622_bak">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.View_Resource_20160622_bak">
+              <MappingFragment StoreEntitySet="View_Resource_20160622_bak">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="TYPE_NAME" ColumnName="TYPE_NAME" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="INTRODUCTION" ColumnName="INTRODUCTION" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="ORIGIN_FLG" ColumnName="ORIGIN_FLG" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATE_NAME" ColumnName="CREATE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Resource_Top">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.View_Resource_Top">
+              <MappingFragment StoreEntitySet="View_Resource_Top">
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="RES_NAME" ColumnName="RES_NAME" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="SHARE_FLG" ColumnName="SHARE_FLG" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="TYPE_NAME" ColumnName="TYPE_NAME" />
+                <ScalarProperty Name="BELONG_ID" ColumnName="BELONG_ID" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Score">
+            <EntityTypeMapping TypeName="JSZX_ResourceModel.View_Score">
+              <MappingFragment StoreEntitySet="View_Score">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+                <ScalarProperty Name="REVIEW" ColumnName="REVIEW" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="MODIFYID" ColumnName="MODIFYID" />
+                <ScalarProperty Name="MODIFYTIME" ColumnName="MODIFYTIME" />
+                <ScalarProperty Name="APPEND_ID" ColumnName="APPEND_ID" />
+                <ScalarProperty Name="CREATE_NAME" ColumnName="CREATE_NAME" />
+                <ScalarProperty Name="MODIFY_NAME" ColumnName="MODIFY_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AppendixByLike" FunctionName="JSZX_ResourceModel.Store.AppendixByLike">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSZX_ResourceModel.AppendixByLike_Result">
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="ACTIVE_TIME_START" ColumnName="ACTIVE_TIME_START" />
+                <ScalarProperty Name="ACTIVE_TIME_END" ColumnName="ACTIVE_TIME_END" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TYPE_FLG" ColumnName="TYPE_FLG" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="Res_DEL_FLG" ColumnName="Res_DEL_FLG" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="SHARE_FLG" ColumnName="SHARE_FLG" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="INTRODUCTION" ColumnName="INTRODUCTION" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="IS_FOREVER" ColumnName="IS_FOREVER" />
+                <ScalarProperty Name="num" ColumnName="num" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MyCollectionByLike" FunctionName="JSZX_ResourceModel.Store.MyCollectionByLike">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSZX_ResourceModel.MyCollectionByLike_Result">
+                <ScalarProperty Name="MyID" ColumnName="MyID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="UPLOAD_TIME" ColumnName="UPLOAD_TIME" />
+                <ScalarProperty Name="ACTIVE_TIME_START" ColumnName="ACTIVE_TIME_START" />
+                <ScalarProperty Name="ACTIVE_TIME_END" ColumnName="ACTIVE_TIME_END" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TYPE_FLG" ColumnName="TYPE_FLG" />
+                <ScalarProperty Name="REVIEW_NUM" ColumnName="REVIEW_NUM" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+                <ScalarProperty Name="PAGE_VIEW_NUM" ColumnName="PAGE_VIEW_NUM" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="Res_DEL_FLG" ColumnName="Res_DEL_FLG" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="SHARE_FLG" ColumnName="SHARE_FLG" />
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="INTRODUCTION" ColumnName="INTRODUCTION" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+                <ScalarProperty Name="MyUserID" ColumnName="MyUserID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="IS_FOREVER" ColumnName="IS_FOREVER" />
+                <ScalarProperty Name="num" ColumnName="num" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Pro_ChangeTask" FunctionName="JSZX_ResourceModel.Store.Pro_ChangeTask" />
+          <FunctionImportMapping FunctionImportName="relatedAnnex" FunctionName="JSZX_ResourceModel.Store.relatedAnnex" />
+          <FunctionImportMapping FunctionImportName="ResStatistics" FunctionName="JSZX_ResourceModel.Store.ResStatistics">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSZX_ResourceModel.ResStatistics_Result">
+                <ScalarProperty Name="CREATEID" ColumnName="CREATEID" />
+                <ScalarProperty Name="CREATE_NAME" ColumnName="CREATE_NAME" />
+                <ScalarProperty Name="allFile" ColumnName="allFile" />
+                <ScalarProperty Name="DOWNLOAD_NUM" ColumnName="DOWNLOAD_NUM" />
+                <ScalarProperty Name="VIEW_NUM" ColumnName="VIEW_NUM" />
+                <ScalarProperty Name="PRAISE_PRE" ColumnName="PRAISE_PRE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Delete" FunctionName="JSZX_ResourceModel.Store.SP_Delete" />
+          <FunctionImportMapping FunctionImportName="SPT_Get_Role_Button" FunctionName="JSZX_ResourceModel.Store.SPT_Get_Role_Button">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSZX_ResourceModel.SPT_Get_Role_Button_Result">
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPT_Menus" FunctionName="JSZX_ResourceModel.Store.SPT_Menus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSZX_ResourceModel.SPT_Menus_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="is_checked" ColumnName="is_checked" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPT_Menus_User" FunctionName="JSZX_ResourceModel.Store.SPT_Menus_User">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSZX_ResourceModel.SPT_Menus_User_Result">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="HaveChild" ColumnName="HaveChild" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPT_Role_One" FunctionName="JSZX_ResourceModel.Store.SPT_Role_One">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSZX_ResourceModel.SPT_Role_One_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

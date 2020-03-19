@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d81b16506ea495d98c1ad7005efdd72" Name="Diagram1">
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Custom_Msg" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Interface" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Message" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_MyCollection" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Receive_Message" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Res_Appendix" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Res_Qa" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Res_Result" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Res_Score" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Res_Tag" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Res_Type" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Resource" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_ToChange" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.T_Version" Width="1.5" PointX="11.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Admin" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Class" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Class_Student" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Class_Student_Bak" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Class_Teacher" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Class_Teacher_Bak" Width="1.5" PointX="13.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Course" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Homework" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Homework_Appendix" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Homework_Comment" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Homework_Student" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Homework_Student_Comment" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Menu" Width="1.5" PointX="6.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_PointRule" Width="1.5" PointX="8.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Review_Count" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Role" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_Role_Menu" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_School" Width="1.5" PointX="15.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_User" Width="1.5" PointX="10.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.Z_UserPoint" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.V_MyCollection" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.V_Public_Annex" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.V_Public_Type" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.V_Version" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.View_Appendix" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.View_Qa" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.View_Res_Appendix" Width="1.5" PointX="6.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.View_Resource" Width="1.5" PointX="18.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.View_Resource_20160622_bak" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.View_Resource_Top" Width="1.5" PointX="18.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JSZX_ResourceModel.View_Score" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="JSZX_ResourceModel.FK_Z_Homework_Comment_Z_Homework" ManuallyRouted="false" />
+        <AssociationConnector Association="JSZX_ResourceModel.FK_Z_Homework_Student_Z_Homework" ManuallyRouted="false" />
+        <AssociationConnector Association="JSZX_ResourceModel.FK_Z_Homework_Student_Comment_Z_Homework_Student" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
